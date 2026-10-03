@@ -6,113 +6,266 @@
   <title>Resume Builder Pro</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+
   <header class="topbar">
     <div>
       <h1>Resume Builder Pro</h1>
       <p>Create an ATS-friendly resume with live preview.</p>
     </div>
-    <button id="downloadPdfBtn" class="primary-btn">Download PDF</button>
+
+    <div>
+      <button id="saveResumeBtn" class="primary-btn">Save Resume</button>
+      <button id="downloadPdfBtn" class="primary-btn">Download PDF</button>
+    </div>
   </header>
 
   <main class="app-shell">
+
+    <!-- ================= EDITOR PANEL ================= -->
+
     <section class="editor-panel">
+
+      <!-- Personal Information -->
       <div class="section-card">
         <h2>Personal Information</h2>
+
         <div class="grid two">
-          <label>Full Name<input id="name" value="Sneha Goyal" /></label>
-          <label>Professional Title<input id="title" value="Java Full Stack Developer" /></label>
-          <label>Email<input id="email" value="your.email@example.com" /></label>
-          <label>Phone<input id="phone" value="+91 XXXXX XXXXX" /></label>
-          <label>Location<input id="location" value="Ghaziabad, Uttar Pradesh, India" /></label>
-          <label>LinkedIn<input id="linkedin" value="linkedin.com/in/sneha-goyal-CSE" /></label>
-          <label class="full">GitHub<input id="github" value="github.com/yourusername" /></label>
+
+          <label>
+            Full Name
+            <input id="name" value="Sneha Goyal" />
+          </label>
+
+          <label>
+            Professional Title
+            <input id="title" value="Java Full Stack Developer" />
+          </label>
+
+          <label>
+            Email
+            <input id="email" value="your.email@example.com" />
+          </label>
+
+          <label>
+            Phone
+            <input id="phone" value="+91 XXXXX XXXXX" />
+          </label>
+
+          <label>
+            Location
+            <input id="location" value="Ghaziabad, Uttar Pradesh, India" />
+          </label>
+
+          <label>
+            LinkedIn
+            <input id="linkedin" value="linkedin.com/in/sneha-goyal-CSE" />
+          </label>
+
+          <label class="full">
+            GitHub
+            <input id="github" value="github.com/yourusername" />
+          </label>
+
         </div>
       </div>
 
+
+      <!-- Professional Summary -->
       <div class="section-card">
         <h2>Professional Summary</h2>
-        <label><textarea id="summary" rows="5">B.Tech Computer Science student interested in Java Full Stack Development, with hands-on experience in web development, software testing, and building practical applications.</textarea></label>
+
+        <label>
+          <textarea id="summary" rows="5">B.Tech Computer Science student interested in Java Full Stack Development, with hands-on experience in web development, software testing, and building practical applications.</textarea>
+        </label>
       </div>
 
+
+      <!-- Skills -->
       <div class="section-card">
         <h2>Skills</h2>
+
         <p class="hint">Separate skills with commas.</p>
-        <label><textarea id="skills" rows="3">Java, JavaScript, HTML, CSS, SQL, MySQL, Git, GitHub, Spring Boot</textarea></label>
+
+        <label>
+          <textarea id="skills" rows="3">Java, JavaScript, HTML, CSS, SQL, MySQL, Git, GitHub, Spring Boot</textarea>
+        </label>
       </div>
 
+
+      <!-- Education -->
       <div class="section-card">
         <h2>Education</h2>
+
         <div id="educationList"></div>
-        <button class="secondary-btn" id="addEducationBtn">+ Add Education</button>
+
+        <button class="secondary-btn" id="addEducationBtn">
+          + Add Education
+        </button>
       </div>
 
+
+      <!-- Experience -->
       <div class="section-card">
         <h2>Experience</h2>
+
         <div id="experienceList"></div>
-        <button class="secondary-btn" id="addExperienceBtn">+ Add Experience</button>
+
+        <button class="secondary-btn" id="addExperienceBtn">
+          + Add Experience
+        </button>
       </div>
 
+
+      <!-- Projects -->
       <div class="section-card">
         <h2>Projects</h2>
+
         <div id="projectsList"></div>
-        <button class="secondary-btn" id="addProjectBtn">+ Add Project</button>
+
+        <button class="secondary-btn" id="addProjectBtn">
+          + Add Project
+        </button>
       </div>
 
+
+      <!-- Achievements / Certifications -->
       <div class="section-card">
         <h2>Achievements / Certifications</h2>
+
         <div id="achievementsList"></div>
-        <button class="secondary-btn" id="addAchievementBtn">+ Add Item</button>
+
+        <button class="secondary-btn" id="addAchievementBtn">
+          + Add Item
+        </button>
       </div>
+
     </section>
+
+
+    <!-- ================= PREVIEW PANEL ================= -->
 
     <section class="preview-panel">
+
+      <!-- Live Preview Toolbar -->
       <div class="preview-toolbar">
         <span>Live Preview</span>
-        <button id="clearBtn" class="danger-btn">Reset</button>
+
+        <button id="clearBtn" class="danger-btn">
+          Reset
+        </button>
       </div>
 
+
+      <!-- Saved Resumes -->
+      <div class="saved-resumes-card">
+
+        <div class="preview-toolbar">
+          <span>Saved Resumes</span>
+
+          <button id="loadResumesBtn" class="secondary-btn">
+            Load Resumes
+          </button>
+        </div>
+
+        <div id="savedResumesList">
+          <p>No saved resumes loaded yet.</p>
+        </div>
+
+      </div>
+
+
+      <!-- Resume Preview -->
       <div id="resumePreview" class="resume-page">
+
+        <!-- Resume Header -->
         <div class="resume-header">
-          <h1 id="pName">Sneha Goyal</h1>
-          <h2 id="pTitle">Java Full Stack Developer</h2>
+
+          <h1 id="pName">
+            Sneha Goyal
+          </h1>
+
+          <h2 id="pTitle">
+            Java Full Stack Developer
+          </h2>
+
           <p id="pContact"></p>
+
         </div>
 
+
+        <!-- Summary -->
         <div id="pSummarySection" class="resume-section">
+
           <h3>SUMMARY</h3>
+
           <p id="pSummary"></p>
+
         </div>
 
+
+        <!-- Skills -->
         <div id="pSkillsSection" class="resume-section">
+
           <h3>SKILLS</h3>
+
           <div id="pSkills" class="skill-list"></div>
+
         </div>
 
+
+        <!-- Education -->
         <div id="pEducationSection" class="resume-section">
+
           <h3>EDUCATION</h3>
+
           <div id="pEducation"></div>
+
         </div>
 
+
+        <!-- Experience -->
         <div id="pExperienceSection" class="resume-section">
+
           <h3>EXPERIENCE</h3>
+
           <div id="pExperience"></div>
+
         </div>
 
+
+        <!-- Projects -->
         <div id="pProjectsSection" class="resume-section">
+
           <h3>PROJECTS</h3>
+
           <div id="pProjects"></div>
+
         </div>
 
+
+        <!-- Achievements -->
         <div id="pAchievementsSection" class="resume-section">
+
           <h3>CERTIFICATIONS & ACHIEVEMENTS</h3>
+
           <div id="pAchievements"></div>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
 
+
+  <!-- PDF Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Main JavaScript -->
   <script src="js/app.js"></script>
+
 </body>
 </html>
